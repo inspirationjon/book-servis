@@ -5,7 +5,7 @@ function Private({ children, ...props }) {
     const [token] = useToken(false)
 
     if (!token) {
-        return <Redirect to='/login' />
+        return <Redirect to='/' />
     }
 
     return <Route {...props} />
