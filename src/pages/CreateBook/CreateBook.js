@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function CreateBook() {
     const [token] = useToken()
-    const { book, setBook } = useState()
+    const [book, setBook] = useState()
 
     function handleSubmit(evt) {
         evt.preventDefault()
@@ -13,7 +13,7 @@ function CreateBook() {
         const formData = new FormData()
         formData.append('book', file.files[0])
 
-        fetch('http://192.168.1.22:4003/upload', {
+        fetch('http://172.1.2.76:4003/upload', {
             method: 'POST',
             headers: {
                 // 'Content-type': 'application/json',
@@ -25,7 +25,7 @@ function CreateBook() {
             .then((data) => data.json())
             .then((data) => console.log(data.data))
 
-        fetch('http://192.168.1.240:4002/books', {
+        fetch('http://172.1.1.46:4002/books', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
